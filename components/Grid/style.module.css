@@ -1,0 +1,58 @@
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 0;
+}
+
+.infoTitle {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 1em;
+}
+
+.infoText {
+  color: #212121;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5em;
+  padding: 1em 0;
+}
+
+.card {
+  /* position: relative; */
+  /* max-width: 30ch; */
+  /* width: 100%; */
+  /* border: 1px solid black; */
+}
+
+.card img {
+  border-radius: 10px;
+}
+
+.card h2 {
+  font-size: .9em;
+  color: #161616;
+  font-weight: 600;
+}
+
+.card h3 {
+  font-size: .8em;
+  font-weight: 600;
+}
+
+.cardPrice b {
+  color: #5CA720;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4em;
+    align-items: space-between;
+  }
+}
