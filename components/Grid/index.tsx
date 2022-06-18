@@ -23,7 +23,7 @@ export const Grid = () => {
         <span className={style.infoText}>{products.length} produtos</span>
       </section>
 
-      <hr />
+      <hr className={style.separator} />
 
       <section className={style.grid}>
 
