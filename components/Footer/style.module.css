@@ -1,6 +1,16 @@
 .footer {
   border-top: 1px solid #c1c1c1;
   margin-top: 2em;
+  /* position: absolute; */
+  /* position: relative; */
+  /* position: fixed; */
+  position: sticky;
+  margin-top: 100%;
+  width: 100%;
+  bottom: 0;
+  /* height: 200px; */
+  /* margin-top: auto; */
+  /* flex-grow: 1; */
 }
 
 .footerContainer {
