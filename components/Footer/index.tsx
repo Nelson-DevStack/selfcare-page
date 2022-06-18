@@ -2,6 +2,17 @@ import style from './style.module.css';
 import { BsInstagram, BsFacebook, BsPaypal } from 'react-icons/bs';
 import {FaCcMastercard, FaCcVisa} from 'react-icons/fa';
 
+const socialMediaLinks = [
+  {
+    href: 'https://instagram.com',
+    icon: <BsInstagram />,
+  },
+  {
+    href: 'https://facebook.com',
+    icon: <BsFacebook />,
+  }
+]
+
 export const Footer = () => {
   return (
     <footer className={style.footer}>
@@ -38,12 +49,11 @@ export const Footer = () => {
       <div className={style.footerBottom}>
         <div className={style.bottomWrapper}>
           <div className={style.socialMedia}>
-            <a>
-              <BsInstagram />
-            </a>
-            <a>
-              <BsFacebook />
-            </a>
+            {socialMediaLinks.map((element, index)=>(
+              <a href={element.href} key={index}>
+                {element.icon}
+              </a>
+            ))}
           </div>
 
           <div className={style.paymentMethods}>
