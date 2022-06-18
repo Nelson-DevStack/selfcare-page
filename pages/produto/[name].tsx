@@ -15,7 +15,7 @@ const ProductPage = () => {
     <>
       <Navbar />
 
-      <main className={homeStyle.topMargin}>
+      <main className={homeStyle.content}>
         <section className={homeStyle.container}>
 
           <div className={style.productPresentation}>

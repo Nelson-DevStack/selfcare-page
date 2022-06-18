@@ -17,7 +17,7 @@ const Home: NextPage = () => {
 
       <Navbar />
 
-      <main className={styles.topMargin}>
+      <main className={styles.content}>
         <Banner />
 
         <section className={styles.container}>
