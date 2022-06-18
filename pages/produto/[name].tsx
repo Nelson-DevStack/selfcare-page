@@ -1,10 +1,16 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { Footer } from '../../components/Footer';
 import { Navbar } from '../../components/Navbar';
 import homeStyle from '../../styles/Home.module.css';
 import style from '../../styles/ProductPage.module.css';
 
 const ProductPage = () => {
+  const router = useRouter();
+  const data = router.query;
+  const productTitle = data.name;
+  const productDesc = data.description;
+
   return (
     <>
       <Navbar />
@@ -18,14 +24,16 @@ const ProductPage = () => {
             </div>
             
             <div className={style.productInfo}>
-              <h1 className={style.productTitle}>Lorem ipsum dolor sit amet</h1>
+              <h1 className={style.productTitle}>
+                {productTitle}
+              </h1>
               <h2 className={style.productPrice}>
                 <b>Preço: </b>
                 R$ 50,00
               </h2>
 
               <p className={style.productDescription}>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium nam voluptatem tenetur quia.
+                {productDesc}
               </p>
 
               <div className={style.buttonsWrapper}>
