@@ -15,8 +15,9 @@ const ProductPage = () => {
     <>
       <Navbar />
 
-      <main className={homeStyle.content}>
-        <section className={homeStyle.container}>
+      <main className={homeStyle.content2}>
+        
+        <section className={homeStyle.container2}>
 
           <div className={style.productPresentation}>
             <div className={style.imageWrapper}>
@@ -51,8 +52,9 @@ const ProductPage = () => {
 
         </section>
 
-        <Footer />
       </main>
+
+      <Footer />
     </>
   )
 };

@@ -1,15 +1,50 @@
 .container {
   max-width: 1280px;
-  width: 100%;
   margin: 0 auto;
+  padding: 0 1em;
+}
+
+.container2 {
+  max-width: 1280px;
+  margin: auto;
   padding: 0 1em;
 }
 
 .content {
   padding-top: 90px;
-  /* min-height: 80vh; */
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   position: relative;
 }
+
+.content2 {
+  padding-top: 90px;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* .container2 {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1em;
+} */
+
+/* .container {
+  max-width: 1280px;
+  width: 100%;
+  margin: auto;
+  padding: 0 1em;
+}
+
+.content {
+  padding-top: 90px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+} */
