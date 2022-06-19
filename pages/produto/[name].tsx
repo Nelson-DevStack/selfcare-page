@@ -10,6 +10,8 @@ const ProductPage = () => {
   const data = router.query;
   const productTitle = data.name;
   const productDesc = data.description;
+  const productImage = data.image;
+  const productPrice = Number(data.price);
 
   return (
     <>
@@ -21,7 +23,7 @@ const ProductPage = () => {
 
           <div className={style.productPresentation}>
             <div className={style.imageWrapper}>
-              <Image src={'/assets/remedy.jpg'} width={450} height={350} objectFit="cover" />
+              <Image src={`/assets/${productImage}`} width={450} height={350} objectFit="cover" />
             </div>
             
             <div className={style.productInfo}>
@@ -29,8 +31,10 @@ const ProductPage = () => {
                 {productTitle}
               </h1>
               <h2 className={style.productPrice}>
-                <b>Preço: </b>
-                R$ 50,00
+                Preço:
+                <b className={style.greenValue}>
+                  {productPrice.toFixed(2)}
+                </b>
               </h2>
 
               <p className={style.productDescription}>

@@ -9,16 +9,19 @@
   justify-content: space-between;
   align-items: center;
   padding: 1em 0;
+  font-family: 'Lato', sans-serif;
 }
 
 .infoTitle {
   font-weight: 500;
   text-transform: uppercase;
   font-size: 1em;
+  letter-spacing: .2px;
 }
 
 .infoText {
   color: #212121;
+  font-size: 1.05em;
 }
 
 .grid {
@@ -28,22 +31,22 @@
   padding: 1em 0;
 }
 
-/* .card {
-
-} */
+.card {
+  cursor: pointer;
+}
 
 .card img {
   border-radius: 10px;
 }
 
 .card h2 {
-  font-size: .9em;
+  font-size: 1em;
   color: #161616;
   font-weight: 600;
 }
 
 .card h3 {
-  font-size: .8em;
+  font-size: .9em;
   font-weight: 600;
 }
 
@@ -57,5 +60,15 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 4em;
     align-items: space-between;
+  }
+
+  .card h2 {
+    font-size: 1.8em;
+    font-weight: 400;
+    color: #212121;
+  }
+
+  .card h3 {
+    font-size: 1.3em;
   }
 }
