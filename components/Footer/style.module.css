@@ -56,6 +56,7 @@
   color: #fafafa;
   border: none;
   padding: .8em;
+  cursor: pointer;
 }
 
 .footerBottom {

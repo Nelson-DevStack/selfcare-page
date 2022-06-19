@@ -37,19 +37,22 @@ export const Grid = () => {
       <section className={style.grid}>
 
         {products.map((product, index)=> (
-          <div className={style.card} key={index}>
+          <div className={style.cardWrapper} key={index}>
             <Link
               href={{
                 pathname: `/produto/${product.title}`,
                 query: { image: product.image, description: product.description, price: product.price },
               }}
             >
-              <div>
+              <div className={style.card}>
                 <Image src={`/assets/${product.image}`} width={450} height={350} className={style.image} objectFit="cover" />
-                <h2>{product.title}</h2>
-                <h3 className={style.cardPrice}>
-                  R$ <b>{product.price.toFixed(2)}</b>
-                </h3>
+
+                <div className={style.cardContent}>
+                  <h2>{product.title}</h2>
+                  <h3 className={style.cardPrice}>
+                    R$ <b>{product.price.toFixed(2)}</b>
+                  </h3>
+                </div>
               </div>
             </Link>
           </div>

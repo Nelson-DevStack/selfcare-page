@@ -34,7 +34,7 @@ export const Footer = () => {
             </li>
           </nav>
 
-          <form className={style.form}>
+          <form className={style.form} onSubmit={(e)=> e.preventDefault()}>
             <h3 className={style.formTitle}>
               Newsletter
             </h3>
