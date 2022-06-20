@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { Footer } from '../../components/Footer';
-import { Navbar } from '../../components/Navbar';
+import { Footer } from '../../src/components/Footer';
+import { Navbar } from '../../src/components/Navbar';
 import homeStyle from '../../styles/Home.module.css';
 import style from '../../styles/ProductPage.module.css';
 
