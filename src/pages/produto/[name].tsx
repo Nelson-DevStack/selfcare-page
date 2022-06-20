@@ -1,17 +1,25 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { BsCart4 } from 'react-icons/bs';
 import { Footer } from '../../components/Footer';
 import { Navbar } from '../../components/Navbar';
+import { NoProduct } from '../../components/NoProduct';
 import homeStyle from '../../styles/Home.module.css';
 import style from '../../styles/ProductPage.module.css';
 
 const ProductPage = () => {
   const router = useRouter();
   const data = router.query;
-  const productTitle = data.name;
-  const productDesc = data.description;
-  const productImage = data.image;
-  const productPrice = Number(data.price);
+  const { name, description, image, price } = data;
+  const productPrice = Number(price);
+  
+  if(!name || !description || !image || !price ) {
+   console.log('Produto inválido');
+    return (
+      <NoProduct />
+    )
+  };
+  
 
   return (
     <>
@@ -23,12 +31,12 @@ const ProductPage = () => {
 
           <div className={style.productPresentation}>
             <div className={style.imageWrapper}>
-              <Image src={`/assets/${productImage}`} width={450} height={350} objectFit="cover" />
+              <Image src={`/assets/${image}`} width={450} height={350} objectFit="cover" />
             </div>
             
             <div className={style.productInfo}>
               <h1 className={style.productTitle}>
-                {productTitle}
+                {name}
               </h1>
               <h2 className={style.productPrice}>
                 Preço:
@@ -38,12 +46,12 @@ const ProductPage = () => {
               </h2>
 
               <p className={style.productDescription}>
-                {productDesc}
+                {description}
               </p>
 
               <div className={style.buttonsWrapper}>
                 <button className={`${style.button} ${style.orange}`}>
-                  Adicionar no Carrinho
+                  Adicionar no Carrinho <BsCart4 />
                 </button>
 
                 <button className={`${style.button} ${style.green}`}>

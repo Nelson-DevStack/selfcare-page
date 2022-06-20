@@ -1,42 +1,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Products } from '../../types/Products';
+import { Products } from '../../data/Products';
 import style from './style.module.css';
-
-const products: Products[] = [
-  {
-    title: 'Lorem Ipsum',
-    description: 'Lorem ipsum dolor sit amet consectetur adispicing',
-    image: 'remedy.jpg',
-    price: 50.00,
-  },
-  {
-    title: 'Bottle',
-    description: 'This is a bottle',
-    image: 'pharma.jpg',
-    price: 35.50,
-  },
-  {
-    title: 'Botanical Glass',
-    description: 'Botanical Glass to help you',
-    image: 'botanical.jpg',
-    price: 35.25,
-  },
-]
 
 export const Grid = () => {
   return(
     <main className={style.gridWrapper}>
       <section className={style.info}>
         <h1 className={style.infoTitle}>Promoção</h1>
-        <span className={style.infoText}>{products.length} produtos</span>
+        <span className={style.infoText}>{Products.length} produtos</span>
       </section>
 
       <hr className={style.separator} />
 
       <section className={style.grid}>
 
-        {products.map((product, index)=> (
+        {Products.map((product, index)=> (
           <div className={style.cardWrapper} key={index}>
             <Link
               href={{
