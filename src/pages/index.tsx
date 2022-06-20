@@ -1,10 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head';
-import { Banner } from '../src/components/Banner';
-import { Footer } from '../src/components/Footer';
-import { Grid } from '../src/components/Grid';
-import { Navbar } from '../src/components/Navbar';
-import styles from '../src/styles/Home.module.css';
+import { Banner } from '../components/Banner';
+import { Footer } from '../components/Footer';
+import { Grid } from '../components/Grid';
+import { Navbar } from '../components/Navbar';
+import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
   return (
