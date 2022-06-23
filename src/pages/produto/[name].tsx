@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { BsCart4 } from 'react-icons/bs';
@@ -18,10 +19,15 @@ const ProductPage = () => {
       <NoProduct />
     )
   };
-  
 
   return (
     <>
+      <Head>
+        <title>Selfcare - {name}</title>
+        <meta name="description" content="Selfcare Shop" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      
       <Navbar />
 
       <main className={homeStyle.content2}>
