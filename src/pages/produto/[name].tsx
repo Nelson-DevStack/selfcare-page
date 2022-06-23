@@ -14,7 +14,6 @@ const ProductPage = () => {
   const productPrice = Number(price);
   
   if(!name || !description || !image || !price ) {
-   console.log('Produto inválido');
     return (
       <NoProduct />
     )
