@@ -24,5 +24,11 @@ export const Products: ProductsType[] = [
     description: 'Um perfume feito de produtos naturais que não agridem sua pele',
     image: 'yellow-bottle.jpg',
     price: 40.50,
-  }
+  },
+  {
+    title: 'Pomada para pele',
+    description: 'Essa pomada é feita de produtos naturais',
+    image: 'flower.jpg',
+    price: 25.50,
+  },
 ]
