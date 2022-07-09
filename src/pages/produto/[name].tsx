@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { BsCart4 } from 'react-icons/bs';
+
 import { Footer } from '../../components/Footer';
 import { Navbar } from '../../components/Navbar';
 import { NoProduct } from '../../components/NoProduct';
@@ -34,9 +36,19 @@ const ProductPage = () => {
         
         <section className={homeStyle.container2}>
 
-          <div className={style.productPresentation}>
+          <motion.div
+            className={style.productPresentation}
+            initial={{ x: -15, opacity: 0.8, transitionDuration: '100ms' }}
+            animate={{ x: 0, opacity: 1, transitionDuration: '100ms' }}
+          >
             <div className={style.imageWrapper}>
-              <Image src={`/assets/${image}`} width={450} height={350} objectFit="cover" />
+              <Image
+                src={`/assets/${image}`}
+                width={450}
+                height={350}
+                objectFit="cover"
+                alt={'Product Image'}
+              />
             </div>
             
             <div className={style.productInfo}>
@@ -65,7 +77,7 @@ const ProductPage = () => {
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
         </section>
 
