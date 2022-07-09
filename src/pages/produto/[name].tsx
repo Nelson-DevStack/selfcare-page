@@ -9,18 +9,27 @@ import { Navbar } from '../../components/Navbar';
 import { NoProduct } from '../../components/NoProduct';
 import homeStyle from '../../styles/Home.module.css';
 import style from '../../styles/ProductPage.module.css';
+import { useContext } from 'react';
+import { CartContext } from '../../contexts/CartContext';
+import { ProductsType } from '../../types/ProductsType';
 
 const ProductPage = () => {
   const router = useRouter();
   const data = router.query;
   const { name, description, image, price } = data;
   const productPrice = Number(price);
+  const { itemsInCart, setItem } = useContext(CartContext);
   
   if(!name || !description || !image || !price ) {
     return (
       <NoProduct />
     )
   };
+
+  function handleClick() {
+    console.log('ckic')
+  }
+
 
   return (
     <>
@@ -67,7 +76,10 @@ const ProductPage = () => {
               </p>
 
               <div className={style.buttonsWrapper}>
-                <button className={`${style.button} ${style.orange}`}>
+                <button
+                  className={`${style.button} ${style.orange}`}
+                  onClick={() => setItem({title: name, price: productPrice.toFixed(2)})}
+                >
                   Adicionar no Carrinho <BsCart4 />
                 </button>
 

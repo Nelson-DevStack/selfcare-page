@@ -1,13 +1,32 @@
-import style from './style.module.css';
 import { BsStarFill, BsSearch, BsCart2 } from 'react-icons/bs';
+import { motion, Variants } from 'framer-motion';
+import style from './style.module.css';
 import { BiUser } from 'react-icons/bi';
 import Link from 'next/link';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../contexts/CartContext';
 
 export const Navbar = () => {
   const { itemsInCart, setItem, check } = useContext(CartContext);
-  console.log(itemsInCart);
+  const [showMenu, setShowMenu] = useState(false);
+  console.log(showMenu)
+
+  useEffect(() => {
+    const isShow = localStorage.getItem('showMenu');
+    if (!isShow) return;
+    setShowMenu(JSON.parse(isShow));
+
+  }, [showMenu])
+
+  const variants: Variants = {
+    open: { x: 0, transitionDuration: '120ms' },
+    closed: { x: '120%', transitionDuration: '200ms' }
+  }
+
+  const handleClick = () => {
+    setShowMenu(!showMenu);
+    localStorage.setItem('showMenu', JSON.stringify(!showMenu));
+  };
 
   return (
     <header className={style.navbar}>
@@ -40,12 +59,29 @@ export const Navbar = () => {
               <BiUser />
             </a>
           </li>
-          <li className={style.navItem}>
-            <a>
+          <li className={style.navItem} onClick={handleClick}>
               <BsCart2/>
-            </a>
+              {itemsInCart.length}
           </li>
         </nav>
+
+        <motion.div
+          className={style.cartMenu}
+          animate={!showMenu ? 'closed' : 'open'}
+          variants={variants}
+        >
+          {itemsInCart.map((item, index) => (
+            <div className={style.cartItem} key={index}>
+              <h3>{item.title}</h3>
+              <p>R$ {item.price}</p>
+            </div>
+          ))}
+
+          <div className={style.totalPrice}>
+            <h2>Total: R$ 100</h2>
+          </div>
+
+        </motion.div>
       </div>
     </header>
   )

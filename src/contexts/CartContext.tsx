@@ -1,8 +1,8 @@
-import React, { createContext, ReactNode, useState } from 'react';
+import React, { createContext, ReactNode, useEffect, useState } from 'react';
 
 type CartItem = {
-  title: string,
-  price: number,
+  title: string | string[] | undefined,
+  price: string | number,
 }
 
 type CartContextType = {
@@ -16,7 +16,6 @@ type ProviderChildren = {
 }
 
 const initialValue = {
-  // itemsInCart: [{title: '', price: 0}],
   itemsInCart: [],
   setItem: () => {},
   check: () => {},
@@ -27,9 +26,15 @@ export const CartContext = createContext<CartContextType>(initialValue);
 export const CartProvider = ({ children }: ProviderChildren) => {
   const [itemsInCart, setItemsInCart] = useState<CartItem[]>(initialValue.itemsInCart);
 
+  useEffect(() => {
+    const items = localStorage.getItem('items');
+    if(items) {
+      setItemsInCart(JSON.parse(items));
+    }
+  }, []);
+
   const setItem = (item: CartItem) => {;
     const items = localStorage.getItem('items');
-
     if(!items){
       const newArray = [...itemsInCart, item];
       setItemsInCart(newArray);
