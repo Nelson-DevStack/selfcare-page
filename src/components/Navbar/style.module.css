@@ -61,6 +61,7 @@
   /* overflow-y: auto; */
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   height: 100%;
+  width: 100%;
   min-height: calc(100vh - 90px);
   /* position: fixed; */
   position: absolute;

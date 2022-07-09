@@ -9,7 +9,6 @@ import { CartContext } from '../../contexts/CartContext';
 export const Navbar = () => {
   const { itemsInCart, setItem, check } = useContext(CartContext);
   const [showMenu, setShowMenu] = useState(false);
-  console.log(showMenu)
 
   useEffect(() => {
     const isShow = localStorage.getItem('showMenu');
@@ -37,16 +36,6 @@ export const Navbar = () => {
             selfcare
           </div>
         </Link>
-
-        <div>
-          <p>{itemsInCart.length}</p>
-          <button
-            onClick={() => setItem({title: 'Oi' , price: 10})}
-          >
-            setar item
-          </button>
-
-        </div>
 
         <nav className={style.navbarLinks}>
           <li className={style.navItem}>
