@@ -1,15 +1,11 @@
 import React, { createContext, ReactNode, useEffect, useState } from 'react';
-
-type CartItem = {
-  title: string | string[] | undefined,
-  price: number,
-}
+import { ProductsType } from '../types/ProductsType';
 
 type CartContextType = {
-  itemsInCart: CartItem[],
-  setItem: (item: CartItem) => void,
+  itemsInCart: ProductsType[],
+  setItem: (item: ProductsType) => void,
   check: () => void;
-  removeItem: (title: string | string[] | undefined) => void,
+  removeItem: (title: string | number) => void,
 }
 
 type ProviderChildren = {
@@ -26,7 +22,7 @@ const initialValue = {
 export const CartContext = createContext<CartContextType>(initialValue);
 
 export const CartProvider = ({ children }: ProviderChildren) => {
-  const [itemsInCart, setItemsInCart] = useState<CartItem[]>(initialValue.itemsInCart);
+  const [itemsInCart, setItemsInCart] = useState<ProductsType[]>(initialValue.itemsInCart);
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
@@ -37,7 +33,7 @@ export const CartProvider = ({ children }: ProviderChildren) => {
     console.log('rodou')
   }, [counter]);
 
-  const setItem = (item: CartItem) => {;
+  const setItem = (item: ProductsType) => {;
     setCounter(counter + 1);
     const items = localStorage.getItem('items');
 
@@ -48,7 +44,7 @@ export const CartProvider = ({ children }: ProviderChildren) => {
     } else {
       const storedItems = JSON.parse(items);
 
-      const index = storedItems.findIndex((obj: CartItem) => {
+      const index = storedItems.findIndex((obj: ProductsType) => {
         return obj.title === item.title;
       });
 
@@ -63,8 +59,8 @@ export const CartProvider = ({ children }: ProviderChildren) => {
     }
   }
 
-  const removeItem = (title: string | string[] | undefined) => {
-    const index = itemsInCart.findIndex(element => element.title === title);
+  const removeItem = (id: string | number) => {
+    const index = itemsInCart.findIndex(element => element.id === id);
     if (index !== -1) {
       const allItems = JSON.parse(localStorage.getItem('items')!);
       const removeItem = allItems.splice(index, 1);

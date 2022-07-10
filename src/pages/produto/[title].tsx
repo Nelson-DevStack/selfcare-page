@@ -15,12 +15,11 @@ import { ProductsType } from '../../types/ProductsType';
 
 const ProductPage = () => {
   const router = useRouter();
-  const data = router.query;
-  const { name, description, image, price } = data;
-  const productPrice = Number(price);
+  const data = router.query as unknown as ProductsType;
+  const { id, title, description, image, price } = data;
   const { itemsInCart, setItem } = useContext(CartContext);
   
-  if(!name || !description || !image || !price ) {
+  if(!title || !description || !image || !price ) {
     return (
       <NoProduct />
     )
@@ -34,15 +33,13 @@ const ProductPage = () => {
   return (
     <>
       <Head>
-        <title>Selfcare - {name}</title>
+        <title>Selfcare - {title}</title>
         <meta name="description" content="Selfcare Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
       <Navbar />
 
       <main className={homeStyle.content2}>
-        
         <section className={homeStyle.container2}>
 
           <motion.div
@@ -62,12 +59,12 @@ const ProductPage = () => {
             
             <div className={style.productInfo}>
               <h1 className={style.productTitle}>
-                {name}
+                {title}
               </h1>
               <h2 className={style.productPrice}>
                 Preço:
                 <b className={style.greenValue}>
-                  {productPrice.toFixed(2)}
+                  {Number(price).toFixed(2)}
                 </b>
               </h2>
 
@@ -78,7 +75,13 @@ const ProductPage = () => {
               <div className={style.buttonsWrapper}>
                 <button
                   className={`${style.button} ${style.orange}`}
-                  onClick={() => setItem({title: name, price: productPrice.toFixed(2)})}
+                  onClick={() => setItem({
+                    title: title,
+                    description,
+                    price: price,
+                    image: image,
+                    id,
+                  })}
                 >
                   Adicionar no Carrinho <BsCart4 />
                 </button>
@@ -90,11 +93,8 @@ const ProductPage = () => {
 
             </div>
           </motion.div>
-
         </section>
-
       </main>
-
       <Footer />
     </>
   )

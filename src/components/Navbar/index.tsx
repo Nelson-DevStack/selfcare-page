@@ -1,11 +1,11 @@
-import { BsStarFill, BsSearch, BsCart2 } from 'react-icons/bs';
-import { motion, Variants } from 'framer-motion';
-import style from './style.module.css';
-import { BiUser } from 'react-icons/bi';
-import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
-import { CartContext } from '../../contexts/CartContext';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { BsStarFill, BsSearch, BsCart2 } from 'react-icons/bs';
 import { FaTimes } from 'react-icons/fa';
+import { BiUser } from 'react-icons/bi';
+import style from './style.module.css';
+import { CartContext } from '../../contexts/CartContext';
 
 export const Navbar = () => {
   const { itemsInCart, removeItem } = useContext(CartContext);
@@ -19,8 +19,8 @@ export const Navbar = () => {
   }, [showMenu]);
 
   useEffect(() => {
-    console.log('calculatetoal')
     calculateTotal();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemsInCart]);
 
   const handleClick = () => {
@@ -32,12 +32,10 @@ export const Navbar = () => {
     let sum = 0;
 
     const calc = itemsInCart.forEach((element) => {
-      console.log(typeof element.price);
       const num = Number(element.price);
       sum += num;
     });
     setTotal(sum);
-    console.log(sum);
   };
 
   return (
@@ -80,10 +78,10 @@ export const Navbar = () => {
             <div className={style.cartItem} key={index}>
               <div>
                 <h3>{item.title}</h3>
-                <p>R$ {item.price}</p>
+                <p>R$ {Number(item.price).toFixed(2)}</p>
               </div>
               <div className={style.iconWrapper}
-                onClick={() => removeItem(item.title)}
+                onClick={() => removeItem(item.id)}
               >
                 <FaTimes color={'#e06b6b'} fontSize={`1.4em`}/>
               </div>
