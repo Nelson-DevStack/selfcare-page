@@ -2,7 +2,7 @@ import React, { createContext, ReactNode, useEffect, useState } from 'react';
 
 type CartItem = {
   title: string | string[] | undefined,
-  price: string | number,
+  price: number,
 }
 
 type CartContextType = {
