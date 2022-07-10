@@ -1,4 +1,4 @@
-import { Navbar } from "../Navbar";
+import Navbar from "../Navbar";
 import { Footer } from "../Footer";
 import homeStyle from '../../styles/Home.module.css';
 import style from './style.module.css';
@@ -15,7 +15,7 @@ export const NoProduct = () => {
       </Head>
 
       <Navbar />
-        <main className={homeStyle.content2}>        
+        <main className={homeStyle.content2}>
           <section className={homeStyle.container2}>
             <div className={style.contentWrapper}>
               <h1 className={style.productTitle}>

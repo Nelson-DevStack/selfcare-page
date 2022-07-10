@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { Footer } from '../components/Footer';
-import { Navbar } from '../components/Navbar';
+import Navbar from '../components/Navbar';
 import homeStyle from '../styles/Home.module.css';
 import style from '../styles/NotFoundPage.module.css';
 
@@ -13,9 +13,9 @@ const NotFoundPage = () => {
         <meta name="description" content="Selfcare Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-    
+
       <Navbar />
-      <main className={homeStyle.content2}>        
+      <main className={homeStyle.content2}>
         <section className={homeStyle.container2}>
           <div className={style.contentWrapper}>
             <h1 className={style.productTitle}>

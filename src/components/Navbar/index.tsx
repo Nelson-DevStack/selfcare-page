@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { BsStarFill, BsSearch, BsCart2 } from 'react-icons/bs';
@@ -7,7 +7,7 @@ import { BiUser } from 'react-icons/bi';
 import style from './style.module.css';
 import { CartContext } from '../../contexts/CartContext';
 
-export const Navbar = () => {
+function Navbar() {
   const { itemsInCart, removeItem } = useContext(CartContext);
   const [showMenu, setShowMenu] = useState(false);
   const [total, setTotal] = useState(0);
@@ -18,24 +18,23 @@ export const Navbar = () => {
     setShowMenu(JSON.parse(isShow));
   }, [showMenu]);
 
+  const calculateTotal = () => {
+    let sum = 0;
+
+    itemsInCart.forEach((element) => {
+      const num = Number(element.price);
+      sum += num;
+    });
+    setTotal(sum);
+  };
+
   useEffect(() => {
     calculateTotal();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemsInCart]);
 
   const handleClick = () => {
     setShowMenu(!showMenu);
     localStorage.setItem('showMenu', JSON.stringify(!showMenu));
-  };
-
-  const calculateTotal = () => {
-    let sum = 0;
-
-    const calc = itemsInCart.forEach((element) => {
-      const num = Number(element.price);
-      sum += num;
-    });
-    setTotal(sum);
   };
 
   return (
@@ -51,7 +50,7 @@ export const Navbar = () => {
         <nav className={style.navbarLinks}>
           <li className={style.navItem}>
             <a>
-              <BsSearch/>
+              <BsSearch />
             </a>
           </li>
           <li className={style.navItem}>
@@ -59,7 +58,10 @@ export const Navbar = () => {
               <BiUser />
             </a>
           </li>
-          <li className={`${style.navItem} ${style.cartWrapper}`} onClick={handleClick}>
+          <li
+            className={`${style.navItem} ${style.cartWrapper}`}
+            onClick={handleClick}
+          >
             <BsCart2 />
             {itemsInCart.length}
           </li>
@@ -80,16 +82,18 @@ export const Navbar = () => {
                 <h3>{item.title}</h3>
                 <p>R$ {Number(item.price).toFixed(2)}</p>
               </div>
-              <div className={style.iconWrapper}
+              <div
+                className={style.iconWrapper}
                 onClick={() => removeItem(item.id)}
               >
-                <FaTimes color={'#e06b6b'} fontSize={`1.4em`}/>
+                <FaTimes color={'#e06b6b'} fontSize={`1.4em`} />
               </div>
             </div>
           ))}
-
         </motion.div>
       </div>
     </header>
-  )
-};
+  );
+}
+
+export default Navbar;

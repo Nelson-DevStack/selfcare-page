@@ -1,15 +1,15 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import { BsCart4 } from 'react-icons/bs';
 
 import { Footer } from '../../components/Footer';
-import { Navbar } from '../../components/Navbar';
+import Navbar from '../../components/Navbar';
 import { NoProduct } from '../../components/NoProduct';
 import homeStyle from '../../styles/Home.module.css';
 import style from '../../styles/ProductPage.module.css';
-import { useContext } from 'react';
 import { CartContext } from '../../contexts/CartContext';
 import { ProductsType } from '../../types/ProductsType';
 
@@ -18,7 +18,7 @@ const ProductPage = () => {
   const data = router.query as unknown as ProductsType;
   const { id, title, description, image, price } = data;
   const { itemsInCart, setItem } = useContext(CartContext);
-  
+
   if(!title || !description || !image || !price ) {
     return (
       <NoProduct />
@@ -56,7 +56,7 @@ const ProductPage = () => {
                 alt={'Product Image'}
               />
             </div>
-            
+
             <div className={style.productInfo}>
               <h1 className={style.productTitle}>
                 {title}
