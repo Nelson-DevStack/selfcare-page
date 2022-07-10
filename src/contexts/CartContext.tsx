@@ -9,6 +9,7 @@ type CartContextType = {
   itemsInCart: CartItem[],
   setItem: (item: CartItem) => void,
   check: () => void;
+  removeItem: (title: string | string[] | undefined) => void,
 }
 
 type ProviderChildren = {
@@ -19,6 +20,7 @@ const initialValue = {
   itemsInCart: [],
   setItem: () => {},
   check: () => {},
+  removeItem: () => {},
 }
 
 export const CartContext = createContext<CartContextType>(initialValue);
@@ -61,12 +63,22 @@ export const CartProvider = ({ children }: ProviderChildren) => {
     }
   }
 
+  const removeItem = (title: string | string[] | undefined) => {
+    const index = itemsInCart.findIndex(element => element.title === title);
+    if (index !== -1) {
+      const allItems = JSON.parse(localStorage.getItem('items')!);
+      const removeItem = allItems.splice(index, 1);
+      setItemsInCart(allItems);
+      localStorage.setItem('items', JSON.stringify(allItems));
+    }
+  }
+
   const check = () => {
     console.log('clicked');
   }
 
   return(
-    <CartContext.Provider value={{ itemsInCart, setItem, check }}>
+    <CartContext.Provider value={{ itemsInCart, setItem, check, removeItem }}>
       {children}
     </CartContext.Provider>
   )

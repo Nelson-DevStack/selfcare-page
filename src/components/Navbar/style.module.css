@@ -59,22 +59,10 @@
 }
 
 .cartMenu {
-  /* width: 300px; */
-  /* width: 100%; */
-  /* background-color: #fafafa; */
-  /* top: 90px; */
-  /* right: 0px; */
-  /* bottom: 0; */
-  /* height: 100%; */
-  /* position: absolute; */
-  /* position: fixed; */
-  /* overflow-y: scroll; */
-  /* overflow-y: auto; */
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   height: 100%;
   width: 100%;
   min-height: calc(100vh - 90px);
-  /* position: fixed; */
   position: absolute;
   right: 0;
   top: 90px;
@@ -87,6 +75,22 @@
   padding: 1em;
   margin: 20px 10px;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.iconWrapper:hover {
+  background-color: #e0e0e0;
 }
 
 .totalPrice {

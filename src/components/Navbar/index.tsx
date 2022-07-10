@@ -5,9 +5,10 @@ import { BiUser } from 'react-icons/bi';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../contexts/CartContext';
+import { FaTimes } from 'react-icons/fa';
 
 export const Navbar = () => {
-  const { itemsInCart } = useContext(CartContext);
+  const { itemsInCart, removeItem } = useContext(CartContext);
   const [showMenu, setShowMenu] = useState(false);
   const [total, setTotal] = useState(0);
 
@@ -21,11 +22,6 @@ export const Navbar = () => {
     console.log('calculatetoal')
     calculateTotal();
   }, [itemsInCart]);
-
-  const variants: Variants = {
-    open: { x: 0, transitionDuration: '120ms' },
-    closed: { x: '120%', transitionDuration: '200ms' }
-  }
 
   const handleClick = () => {
     setShowMenu(!showMenu);
@@ -73,8 +69,8 @@ export const Navbar = () => {
 
         <motion.div
           className={style.cartMenu}
-          animate={!showMenu ? 'closed' : 'open'}
-          variants={variants}
+          initial={{ x: '120%', transitionDuration: '120ms' }}
+          animate={{ x: showMenu ? 0 : '120%', transitionDuration: '120ms' }}
         >
           <div className={style.totalPrice}>
             <h2>Total: R$ {total.toFixed(2)}</h2>
@@ -82,8 +78,15 @@ export const Navbar = () => {
 
           {itemsInCart.map((item, index) => (
             <div className={style.cartItem} key={index}>
-              <h3>{item.title}</h3>
-              <p>R$ {item.price}</p>
+              <div>
+                <h3>{item.title}</h3>
+                <p>R$ {item.price}</p>
+              </div>
+              <div className={style.iconWrapper}
+                onClick={() => removeItem(item.title)}
+              >
+                <FaTimes color={'#e06b6b'} fontSize={`1.4em`}/>
+              </div>
             </div>
           ))}
 
