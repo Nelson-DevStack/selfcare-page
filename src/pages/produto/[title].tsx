@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -19,29 +20,22 @@ const ProductPage = () => {
   const { id, title, description, image, price } = data;
   const { itemsInCart, setItem } = useContext(CartContext);
 
-  if(!title || !description || !image || !price ) {
-    return (
-      <NoProduct />
-    )
-  };
-
-  function handleClick() {
-    console.log('ckic')
+  if (!title || !description || !image || !price) {
+    return <NoProduct />;
   }
 
-
+  const isItemInCart = itemsInCart.filter((item) => item.title === title);
   return (
     <>
       <Head>
         <title>Selfcare - {title}</title>
-        <meta name="description" content="Selfcare Shop" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='description' content='Selfcare Shop' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <Navbar />
 
       <main className={homeStyle.content2}>
         <section className={homeStyle.container2}>
-
           <motion.div
             className={style.productPresentation}
             initial={{ x: -15, opacity: 0.8, transitionDuration: '100ms' }}
@@ -52,52 +46,54 @@ const ProductPage = () => {
                 src={`/assets/${image}`}
                 width={450}
                 height={350}
-                objectFit="cover"
+                objectFit='cover'
                 alt={'Product Image'}
               />
             </div>
 
             <div className={style.productInfo}>
-              <h1 className={style.productTitle}>
-                {title}
-              </h1>
+              <h1 className={style.productTitle}>{title}</h1>
               <h2 className={style.productPrice}>
                 Preço:
-                <b className={style.greenValue}>
-                  {Number(price).toFixed(2)}
-                </b>
+                <b className={style.greenValue}>{Number(price).toFixed(2)}</b>
               </h2>
 
-              <p className={style.productDescription}>
-                {description}
-              </p>
+              <p className={style.productDescription}>{description}</p>
 
               <div className={style.buttonsWrapper}>
-                <button
-                  className={`${style.button} ${style.orange}`}
-                  onClick={() => setItem({
-                    title: title,
-                    description,
-                    price: price,
-                    image: image,
-                    id,
-                  })}
-                >
-                  Adicionar no Carrinho <BsCart4 />
-                </button>
+                {isItemInCart.length > 0 ? (
+                  <button className={`${style.button} ${style.orange}`}>
+                    Já está no Carrinho
+                    <BsCart4 />
+                  </button>
+                ) : (
+                  <button
+                    className={`${style.button} ${style.orange}`}
+                    onClick={() =>
+                      setItem({
+                        title: title,
+                        description,
+                        price: price,
+                        image: image,
+                        id,
+                      })
+                    }
+                  >
+                    Adicionar no Carrinho <BsCart4 />
+                  </button>
+                )}
 
                 <button className={`${style.button} ${style.green}`}>
                   Comprar
                 </button>
               </div>
-
             </div>
           </motion.div>
         </section>
       </main>
       <Footer />
     </>
-  )
+  );
 };
 
 export default ProductPage;

@@ -11,6 +11,7 @@ function Navbar() {
   const { itemsInCart, removeItem } = useContext(CartContext);
   const [showMenu, setShowMenu] = useState(false);
   const [total, setTotal] = useState(0);
+  console.log(itemsInCart[0]);
 
   useEffect(() => {
     const isShow = localStorage.getItem('showMenu');
