@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Footer } from '../components/Footer';
@@ -6,12 +7,12 @@ import homeStyle from '../styles/Home.module.css';
 import style from '../styles/NotFoundPage.module.css';
 
 const NotFoundPage = () => {
-  return(
+  return (
     <>
       <Head>
         <title>Selfcare - Página não encontrada</title>
-        <meta name="description" content="Selfcare Shop" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='description' content='Selfcare Shop' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <Navbar />
@@ -22,9 +23,7 @@ const NotFoundPage = () => {
               Erro 404 | Essa página não foi encontrada
             </h1>
             <div className={style.link}>
-              <Link href={'/'}>
-                Clique aqui para ir à Página Inicial
-              </Link>
+              <Link href={'/'}>Clique aqui para ir à Página Inicial</Link>
             </div>
           </div>
         </section>
@@ -32,7 +31,7 @@ const NotFoundPage = () => {
 
       <Footer />
     </>
-  )
+  );
 };
 
 export default NotFoundPage;

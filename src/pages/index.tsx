@@ -1,4 +1,5 @@
-import type { NextPage } from 'next'
+import React from 'react';
+import type { NextPage } from 'next';
 import Head from 'next/head';
 import { Banner } from '../components/Banner';
 import { Footer } from '../components/Footer';
@@ -11,8 +12,8 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Selfcare</title>
-        <meta name="description" content="Selfcare Shop" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='description' content='Selfcare Shop' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <Navbar />
@@ -27,7 +28,7 @@ const Home: NextPage = () => {
 
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

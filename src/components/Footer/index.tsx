@@ -1,6 +1,7 @@
+import React from 'react';
 import style from './style.module.css';
 import { BsInstagram, BsFacebook, BsPaypal } from 'react-icons/bs';
-import {FaCcMastercard, FaCcVisa} from 'react-icons/fa';
+import { FaCcMastercard, FaCcVisa } from 'react-icons/fa';
 
 const socialMediaLinks = [
   {
@@ -10,15 +11,14 @@ const socialMediaLinks = [
   {
     href: 'https://facebook.com',
     icon: <BsFacebook />,
-  }
-]
+  },
+];
 
 export const Footer = () => {
   return (
     <footer className={style.footer}>
       <div className={style.footerContainer}>
         <div className={style.flex}>
-
           <nav className={style.links}>
             <li>
               <a>Contato</a>
@@ -34,22 +34,18 @@ export const Footer = () => {
             </li>
           </nav>
 
-          <form className={style.form} onSubmit={(e)=> e.preventDefault()}>
-            <h3 className={style.formTitle}>
-              Newsletter
-            </h3>
-            <input type="text" placeholder={"Digite seu melhor e-mail"} />
+          <form className={style.form} onSubmit={(e) => e.preventDefault()}>
+            <h3 className={style.formTitle}>Newsletter</h3>
+            <input type='text' placeholder={'Digite seu melhor e-mail'} />
             <button>Inscrever</button>
           </form>
-
         </div>
-
       </div>
 
       <div className={style.footerBottom}>
         <div className={style.bottomWrapper}>
           <div className={style.socialMedia}>
-            {socialMediaLinks.map((element, index)=>(
+            {socialMediaLinks.map((element, index) => (
               <a href={element.href} key={index}>
                 {element.icon}
               </a>
@@ -61,10 +57,8 @@ export const Footer = () => {
             <FaCcVisa />
             <BsPaypal />
           </div>
-
         </div>
       </div>
-
     </footer>
-  )
+  );
 };
