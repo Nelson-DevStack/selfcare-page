@@ -4,7 +4,6 @@ import { ProductsType } from '../types/ProductsType';
 type CartContextType = {
   itemsInCart: ProductsType[];
   setItem: (item: ProductsType) => void;
-  check: () => void;
   removeItem: (title: string | number) => void;
 };
 
@@ -15,7 +14,6 @@ type ProviderChildren = {
 const initialValue = {
   itemsInCart: [],
   setItem: () => {},
-  check: () => {},
   removeItem: () => {},
 };
 
@@ -32,7 +30,6 @@ export const CartProvider = ({ children }: ProviderChildren) => {
     if (items) {
       setItemsInCart(JSON.parse(items));
     }
-    console.log('rodou');
   }, [counter]);
 
   const setItem = (item: ProductsType) => {
@@ -64,18 +61,14 @@ export const CartProvider = ({ children }: ProviderChildren) => {
     const index = itemsInCart.findIndex((element) => element.id === id);
     if (index !== -1) {
       const allItems = JSON.parse(localStorage.getItem('items')!);
-      const removeItem = allItems.splice(index, 1);
+      allItems.splice(index, 1);
       setItemsInCart(allItems);
       localStorage.setItem('items', JSON.stringify(allItems));
     }
   };
 
-  const check = () => {
-    console.log('clicked');
-  };
-
   return (
-    <CartContext.Provider value={{ itemsInCart, setItem, check, removeItem }}>
+    <CartContext.Provider value={{ itemsInCart, setItem, removeItem }}>
       {children}
     </CartContext.Provider>
   );

@@ -1,10 +1,11 @@
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Products } from '../../data/Products';
 import style from './style.module.css';
 
 export const Grid = () => {
-  return(
+  return (
     <main className={style.gridWrapper}>
       <section className={style.info}>
         <h1 className={style.infoTitle}>Promoção</h1>
@@ -14,17 +15,27 @@ export const Grid = () => {
       <hr className={style.separator} />
 
       <section className={style.grid}>
-
-        {Products.map((product, index)=> (
+        {Products.map((product, index) => (
           <div className={style.cardWrapper} key={index}>
             <Link
               href={{
                 pathname: `/produto/${product.title}`,
-                query: { image: product.image, description: product.description, price: product.price },
+                query: {
+                  id: product.id,
+                  image: product.image,
+                  description: product.description,
+                  price: product.price,
+                },
               }}
             >
               <div className={style.card}>
-                <Image src={`/assets/${product.image}`} width={450} height={350} className={style.image} objectFit="cover" />
+                <Image
+                  src={`/assets/${product.image}`}
+                  width={450}
+                  height={350}
+                  className={style.image}
+                  objectFit='cover'
+                />
 
                 <div className={style.cardContent}>
                   <h2>{product.title}</h2>
@@ -35,9 +46,8 @@ export const Grid = () => {
               </div>
             </Link>
           </div>
-        ))}        
-
+        ))}
       </section>
     </main>
-  )
+  );
 };

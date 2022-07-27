@@ -11,7 +11,6 @@ function Navbar() {
   const { itemsInCart, removeItem } = useContext(CartContext);
   const [showMenu, setShowMenu] = useState(false);
   const [total, setTotal] = useState(0);
-  console.log(itemsInCart[0]);
 
   useEffect(() => {
     const isShow = localStorage.getItem('showMenu');
@@ -41,7 +40,7 @@ function Navbar() {
   return (
     <header className={style.navbar}>
       <div className={style.navbarContainer}>
-        <Link href={'/'}>
+        <Link href={'/'} scroll={false}>
           <div className={style.navbarBrand}>
             <BsStarFill />
             selfcare
