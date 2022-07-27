@@ -16,7 +16,7 @@ export const Grid = () => {
 
       <section className={style.grid}>
         {Products.map((product, index) => (
-          <div className={style.cardWrapper} key={index}>
+          <div className={style.cardWrapper} key={index} id='div'>
             <Link
               href={{
                 pathname: `/produto/${product.title}`,
