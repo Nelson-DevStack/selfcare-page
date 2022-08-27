@@ -69,3 +69,11 @@ a {
 .swiper-button-prev {
   color: #ffb443!important;
 }
+
+.swiper-pagination span{
+  padding: .5em;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ffb443!important;
+}
