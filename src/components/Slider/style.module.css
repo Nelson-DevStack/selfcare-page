@@ -1,0 +1,22 @@
+.sliderWrapper {
+  width: 100%;
+
+}
+
+.imageWrapper {
+  position: relative;
+  height: 300px;
+  object-fit: contain;
+}
+
+@media screen and (min-width: 768px) {
+  .imageWrapper {
+    height: 30em;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .imageWrapper {
+    height: 50em;
+  }
+}

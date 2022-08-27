@@ -1,18 +1,19 @@
 .bannerSection {
   position: relative;
   width: 100%;
-  background-image: url('/banner.png');
-  height: 200px;
+
+  /* height: 200px; */
+  height: auto;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   background-size: cover;
-  display: flex;
-  justify-content: center;
 }
 
-@media screen and (min-width: 768px) {
+
+
+/* @media screen and (min-width: 768px) {
   .bannerSection {
     height: 375px;
   }
-};
+}; */

@@ -1,11 +1,11 @@
 import React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { Banner } from '../components/Banner';
 import { Footer } from '../components/Footer';
 import { Grid } from '../components/Grid';
 import Navbar from '../components/Navbar';
 import styles from '../styles/Home.module.css';
+import Slider from '../components/Slider';
 
 const Home: NextPage = () => {
   return (
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
       <Navbar />
 
       <main className={styles.content}>
-        <Banner />
+        <Slider />
 
         <section className={styles.container}>
           <Grid />

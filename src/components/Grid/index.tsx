@@ -8,7 +8,7 @@ export const Grid = () => {
   return (
     <main className={style.gridWrapper}>
       <section className={style.info}>
-        <h1 className={style.infoTitle}>Promoção</h1>
+        <h1 className={style.infoTitle}>Promoções</h1>
         <span className={style.infoText}>{Products.length} produtos</span>
       </section>
 
