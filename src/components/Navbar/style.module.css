@@ -27,6 +27,12 @@
   font-size: 1.2em;
   font-family: 'Lato', sans-serif;
   cursor: pointer;
+  transition: 200ms;
+  transition-property: color;
+}
+
+.navbarBrand:hover {
+  color:#5CA720 ;
 }
 
 .navbarLinks {

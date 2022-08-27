@@ -17,6 +17,6 @@
 
 @media screen and (min-width: 1024px) {
   .imageWrapper {
-    height: 50em;
+    height: 80vh;
   }
 }

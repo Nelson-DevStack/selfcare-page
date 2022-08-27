@@ -1,11 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
-import { BsStarFill, BsSearch, BsCart2 } from 'react-icons/bs';
+import { motion } from 'framer-motion';
+
+import { BsSearch, BsCart2 } from 'react-icons/bs';
 import { FaTimes } from 'react-icons/fa';
 import { BiUser } from 'react-icons/bi';
-import style from './style.module.css';
 import { CartContext } from '../../contexts/CartContext';
+
+import style from './style.module.css';
 
 function Navbar() {
   const { itemsInCart, removeItem } = useContext(CartContext);
@@ -42,7 +45,7 @@ function Navbar() {
       <div className={style.navbarContainer}>
         <Link href={'/'} scroll={false}>
           <div className={style.navbarBrand}>
-            <BsStarFill />
+            <Image src={'/favicon.png'} width={30} height={30} />
             selfcare
           </div>
         </Link>
