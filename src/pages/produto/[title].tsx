@@ -30,7 +30,15 @@ const ProductPage = () => {
       <Head>
         <title>Selfcare - {title}</title>
         <meta name='description' content='Selfcare Shop' />
-        <link rel='icon' href='/favicon.ico' />
+        <meta name='robots' content='follow' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta
+          name='author'
+          content='Nelson Carvalho | Github: Nelson-DevStack'
+        />
+        <link rel='canonical' href='/' />
+        <link rel='icon' type='image/png' href='/favicon.png' />
+        <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
       </Head>
       <Navbar />
 
