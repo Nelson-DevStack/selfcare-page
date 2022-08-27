@@ -4,15 +4,11 @@
   background-color: var(--gray);
 }
 
-.gridWrapper {
-  padding: 2em 0;
-}
-
 .info {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em 0;
+  padding: 2em 0 1em 0;
   font-family: 'Lato', sans-serif;
 }
 
